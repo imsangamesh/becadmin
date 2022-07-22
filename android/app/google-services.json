@@ -1,0 +1,100 @@
+{
+  "project_info": {
+    "project_number": "369799133905",
+    "project_id": "becuser",
+    "storage_bucket": "becuser.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369799133905:android:c0ddc4abad8f83800223f0",
+        "android_client_info": {
+          "package_name": "com.crackhead.becadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369799133905-d5en9510231ujiihb337p5lb5f4s5fed.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crackhead.becadmin",
+            "certificate_hash": "f93d1e004fcb5c9cff0a09160d99180d715cc6f3"
+          }
+        },
+        {
+          "client_id": "369799133905-sei03acbscarr773lmgl4ufrnc28rpgi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crackhead.becadmin",
+            "certificate_hash": "14b33145fa7e870f5ea8469aa609c3df8949ed53"
+          }
+        },
+        {
+          "client_id": "369799133905-ns2tohlugmjh27pv8vaf6p6g4c86djag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACy3ozYi4JetLeYeWZzolQQMSCgq6SjBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369799133905-ns2tohlugmjh27pv8vaf6p6g4c86djag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369799133905:android:2d9300304657cda80223f0",
+        "android_client_info": {
+          "package_name": "com.crackhead.becuser3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369799133905-8k4nqoafaqiqfriaccf0po9fo18sprpj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crackhead.becuser3",
+            "certificate_hash": "f93d1e004fcb5c9cff0a09160d99180d715cc6f3"
+          }
+        },
+        {
+          "client_id": "369799133905-d80e6c6igul3a9iripji35lnn68j2dma.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crackhead.becuser3",
+            "certificate_hash": "14b33145fa7e870f5ea8469aa609c3df8949ed53"
+          }
+        },
+        {
+          "client_id": "369799133905-ns2tohlugmjh27pv8vaf6p6g4c86djag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACy3ozYi4JetLeYeWZzolQQMSCgq6SjBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369799133905-ns2tohlugmjh27pv8vaf6p6g4c86djag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
