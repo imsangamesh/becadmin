@@ -1,4 +1,6 @@
 //  depts:      sems:       subs:       tests:      years:
+// ignore_for_file: equal_keys_in_map
+
 Map<String, Map<String, Map<String, Map<String, Map<String, String>>>>>
     departMapData = {
   //Civil Department

@@ -1,8 +1,9 @@
-import 'package:becadmin/utilities/constants.dart';
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
 import 'package:becadmin/controllers/uploads/upload_controller.dart';
-import 'package:file_picker/file_picker.dart';
+import 'package:becadmin/utilities/constants.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../utilities/myDialogBox.dart';
 import '../../utilities/my_buttons.dart';
@@ -16,18 +17,29 @@ class HomeImages extends StatefulWidget {
 }
 
 class _HomeImagesState extends State<HomeImages> {
-  List<PlatformFile> imageList = [];
+  List<XFile> imageList = [];
+
+  // pickImages() async {
+  //   final result = await FilePicker.platform.pickFiles(
+  //     type: FileType.image,
+  //     allowMultiple: true,
+  //   );
+  //   if (result == null) {
+  //     MyDialogBox.showSnackBar('you didn\'t pick any images', yes: false);
+  //     return;
+  //   }
+  //   setState(() => imageList = result.files);
+  // }
 
   pickImages() async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.image,
-      allowMultiple: true,
-    );
-    if (result == null) {
+    final result = await ImagePicker().pickMultiImage();
+
+    if (result.isEmpty) {
       MyDialogBox.showSnackBar('you didn\'t pick any images', yes: false);
       return;
     }
-    setState(() => imageList = result.files);
+
+    setState(() => imageList = result);
   }
 
   submitImages() async {
@@ -36,6 +48,9 @@ class _HomeImagesState extends State<HomeImages> {
       'homeimages',
     );
     if (imageUrls == null) return;
+
+    log(imageUrls.toString());
+    log('======================================================================================================================');
 
     UploadController.updMultipleImagesDataToFire(
       imageUrls,
@@ -61,7 +76,7 @@ class _HomeImagesState extends State<HomeImages> {
           MyOutLButton('Pick Images', pickImages),
           const SizedBox(height: 20),
           Wrap(
-            children: imageList.map((each) => EventImage(each.path!)).toList(),
+            children: imageList.map((each) => EventImage(each.path)).toList(),
           ),
           const SizedBox(height: 20),
           if (imageList.isNotEmpty) MyElevButton('Upload', submitImages),

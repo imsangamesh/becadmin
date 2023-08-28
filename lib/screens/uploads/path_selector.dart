@@ -40,6 +40,7 @@ class _PathSelectorState extends State<PathSelector> {
             testNo: currTest,
             link: '',
             date: '',
+            tag: '',
           ),
         ),
       );
@@ -57,6 +58,7 @@ class _PathSelectorState extends State<PathSelector> {
             sub: currSub,
             link: '',
             date: '',
+            tag: '',
           ),
         ),
       );

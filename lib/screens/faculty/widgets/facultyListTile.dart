@@ -9,7 +9,7 @@ import '../../../utilities/myDialogBox.dart';
 //Faculty listcard widget
 class FacultyListTile extends StatelessWidget {
   //
-  FacultyListTile({
+  const FacultyListTile({
     Key? key,
     required this.name,
     required this.department,
@@ -17,10 +17,10 @@ class FacultyListTile extends StatelessWidget {
     required this.myEmail,
   }) : super(key: key);
 
-  String name;
-  String department;
-  String phone;
-  String myEmail;
+  final String name;
+  final String department;
+  final String phone;
+  final String myEmail;
 
   @override
   Widget build(BuildContext context) {

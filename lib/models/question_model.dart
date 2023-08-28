@@ -7,6 +7,7 @@ class QuestionModel {
   String? year;
   String? link;
   String? date;
+  String? tag;
 
   QuestionModel({
     required this.id,
@@ -17,6 +18,7 @@ class QuestionModel {
     required this.year,
     required this.link,
     required this.date,
+    required this.tag,
   });
 
   QuestionModel.fromMap(Map<String, dynamic> map) {
@@ -28,6 +30,7 @@ class QuestionModel {
     year = map['year'];
     link = map['link'];
     date = map['date'];
+    tag = map['tag'];
   }
 
   Map<String, dynamic> toMap() {
@@ -40,6 +43,7 @@ class QuestionModel {
       'year': year,
       'link': link,
       'date': date,
+      'tag': tag,
     };
   }
 }

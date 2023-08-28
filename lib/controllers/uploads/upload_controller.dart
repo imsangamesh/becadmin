@@ -6,9 +6,9 @@ import 'package:becadmin/models/question_model.dart';
 import 'package:becadmin/screens/home/home_screen.dart';
 import 'package:becadmin/utilities/constants.dart';
 import 'package:becadmin/utilities/myDialogBox.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UploadController {
   // =======================  upload any file ===================
@@ -121,7 +121,7 @@ class UploadController {
   // ======================= upload event images ===================
   static Future<List<String>?> newEventImages(
     String title,
-    List<PlatformFile> images,
+    List<XFile> images,
   ) async {
     try {
       List<String> imageUrls = [];
@@ -132,7 +132,7 @@ class UploadController {
             .ref()
             .child('events')
             .child('$title _ $i')
-            .putFile(File(images[i].path!));
+            .putFile(File(images[i].path));
 
         imageUrls.add(await taskSnapshot.ref.getDownloadURL());
       }
@@ -167,7 +167,8 @@ class UploadController {
 
   // ======================= upload Home images ===================
   static Future<List<String>?> multipleImages(
-    List<PlatformFile> images,
+    // List<XFile> images,
+    dynamic images,
     String refName,
   ) async {
     try {
@@ -179,7 +180,7 @@ class UploadController {
             .ref()
             .child(refName)
             .child('images-$i')
-            .putFile(File(images[i].path!));
+            .putFile(File(images[i].path));
 
         imageUrls.add(await taskSnapshot.ref.getDownloadURL());
       }

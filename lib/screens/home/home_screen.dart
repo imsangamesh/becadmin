@@ -9,8 +9,8 @@ import 'package:becadmin/screens/uploads/upload_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../add users/add_user_emails.dart';
 import '../gallery/gallery_screen.dart';
-import 'mainDrawer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,8 +18,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const MainDrawer(),
+      // drawer: const MainDrawer(),
       appBar: AppBar(
+        leading: const Icon(Icons.school),
+        leadingWidth: 100,
+        titleSpacing: 0,
         title: const Text('BEC ADMIN'),
         actions: const [],
       ),
@@ -99,6 +102,13 @@ class HomeScreen extends StatelessWidget {
                   icon: Icons.person_search_sharp,
                   navigateTo: () => Get.to(
                     () => const ResultAndExamBlock(SearchMode.block),
+                  ),
+                ),
+                MyDrawerListTile(
+                  title: 'Add New Users',
+                  icon: Icons.account_circle,
+                  navigateTo: () => Get.to(
+                    () => AddUserEmails(),
                   ),
                 ),
               ],

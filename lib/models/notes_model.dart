@@ -6,6 +6,7 @@ class NotesModel {
   String? sub;
   String? link;
   String? date;
+  String? tag;
 
   NotesModel({
     required this.id,
@@ -15,6 +16,7 @@ class NotesModel {
     required this.sub,
     required this.link,
     required this.date,
+    required this.tag,
   });
 
   NotesModel.fromMap(Map<String, dynamic> map) {
@@ -25,6 +27,7 @@ class NotesModel {
     sub = map['sub'];
     link = map['link'];
     date = map['date'];
+    tag = map['tag'];
   }
 
   Map<String, dynamic> toMap() {
@@ -36,6 +39,7 @@ class NotesModel {
       'sub': sub,
       'link': link,
       'date': date,
+      'tag': tag,
     };
   }
 }

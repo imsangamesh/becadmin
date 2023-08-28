@@ -5,6 +5,7 @@ import 'package:becadmin/utilities/constants.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../controllers/uploads/notice_Controller.dart';
 import '../../utilities/myDialogBox.dart';
@@ -30,7 +31,7 @@ class _NoticeScreenState extends State<NoticeScreen> {
   List<String> fileUrls = [];
 
   bool _attachImages = false;
-  List<PlatformFile> images = [];
+  List<XFile> images = [];
   List<String> imageUrls = [];
 
   updateNotice() async {
@@ -92,19 +93,30 @@ class _NoticeScreenState extends State<NoticeScreen> {
   }
 
   // ====================== images
+  // pickImages() async {
+  //   final result = await FilePicker.platform.pickFiles(
+  //     type: FileType.image,
+  //     allowMultiple: true,
+  //   );
+  //   if (result == null) {
+  //     MyDialogBox.showSnackBar('you didn\'t pick any images', yes: false);
+  //     return;
+  //   }
+  //   setState(() => images = result.files);
+  // }
+
   pickImages() async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.image,
-      allowMultiple: true,
-    );
-    if (result == null) {
+    final result = await ImagePicker().pickMultiImage();
+
+    if (result.isEmpty) {
       MyDialogBox.showSnackBar('you didn\'t pick any images', yes: false);
       return;
     }
-    setState(() => images = result.files);
+
+    setState(() => images = result);
   }
 
-  uploadImages(List<PlatformFile> uploadImages) async {
+  uploadImages(List<XFile> uploadImages) async {
     List<String>? urlListR =
         await UploadController.multipleImages(uploadImages, 'noticeimages');
 
@@ -134,8 +146,8 @@ class _NoticeScreenState extends State<NoticeScreen> {
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: Column(children: [
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Text('  current notice :', style: kSmallSizeBoldTextStyle)
               ],
             ),
@@ -220,7 +232,7 @@ class _NoticeScreenState extends State<NoticeScreen> {
                           margin: const EdgeInsets.all(5),
                           height: 100,
                           width: 100,
-                          child: Image.file(File(e.path!), fit: BoxFit.cover),
+                          child: Image.file(File(e.path), fit: BoxFit.cover),
                         ))
                     .toList(),
               ),

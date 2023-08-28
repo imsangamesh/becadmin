@@ -73,6 +73,7 @@ class _UploadHandlerState extends State<UploadHandler> {
       year: widget.qm!.year,
       link: downUrl,
       date: DateTime.now().toIso8601String(),
+      tag: pathId.split('~').sublist(0, 3).join('~'),
     );
 
     UploadController.updQuestionsDataToFire(newQM);
@@ -95,6 +96,7 @@ class _UploadHandlerState extends State<UploadHandler> {
       sub: widget.nm!.sub,
       link: downUrl,
       date: DateTime.now().toIso8601String(),
+      tag: pathId.split('~').sublist(0, 3).join('~'),
     );
 
     UploadController.updNotesDataToFire(newNM);
@@ -150,6 +152,7 @@ class _UploadHandlerState extends State<UploadHandler> {
                     MyCustomChip(widget.sylDept!),
                     MyCustomChip(widget.sylSem!),
                   ];
+
     return Scaffold(
       appBar: AppBar(
           title: Text(

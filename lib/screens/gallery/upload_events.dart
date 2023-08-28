@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:becadmin/controllers/uploads/upload_controller.dart';
 import 'package:becadmin/models/event_model.dart';
 import 'package:becadmin/utilities/constants.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:open_file/open_file.dart';
 
 import '../../utilities/myDialogBox.dart';
@@ -20,18 +20,29 @@ class UploadEvents extends StatefulWidget {
 
 class _UploadEventsState extends State<UploadEvents> {
   //
-  List<PlatformFile> imageList = [];
+  List<XFile> imageList = [];
+
+  // pickImages() async {
+  //   final result = await FilePicker.platform.pickFiles(
+  //     type: FileType.image,
+  //     allowMultiple: true,
+  //   );
+  //   if (result == null) {
+  //     MyDialogBox.showSnackBar('you didn\'t pick any images', yes: false);
+  //     return;
+  //   }
+  //   setState(() => imageList = result.files);
+  // }
 
   pickImages() async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.image,
-      allowMultiple: true,
-    );
-    if (result == null) {
+    final result = await ImagePicker().pickMultiImage();
+
+    if (result.isEmpty) {
       MyDialogBox.showSnackBar('you didn\'t pick any images', yes: false);
       return;
     }
-    setState(() => imageList = result.files);
+
+    setState(() => imageList = result);
   }
 
   submitImages() async {
@@ -80,7 +91,7 @@ class _UploadEventsState extends State<UploadEvents> {
             if (imageList.isNotEmpty)
               Wrap(
                 children: imageList
-                    .map((eachPlatFile) => EventImage(eachPlatFile.path!))
+                    .map((eachPlatFile) => EventImage(eachPlatFile.path))
                     .toList(),
               ),
             if (imageList.isNotEmpty) const SizedBox(height: 20),

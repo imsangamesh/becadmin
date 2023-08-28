@@ -43,7 +43,7 @@ class _GalleryState extends State<Gallery> {
         _dateCntr == null) {
       MyDialogBox.defaultDialog(
         'Oops',
-        'please fill out all the fields, select date and then submit.',
+        'please fill out all the fields, select date and then proceed.',
       );
       return;
     }

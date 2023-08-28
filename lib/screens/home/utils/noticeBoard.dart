@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../utilities/constants.dart';
 
 class NoticeBoard extends StatelessWidget {
-  NoticeBoard(
+  const NoticeBoard(
     this.title,
     this.body, {
     Key? key,
@@ -12,7 +12,7 @@ class NoticeBoard extends StatelessWidget {
 
   final String title;
   final String body;
-  bool? loading;
+  final bool? loading;
 
   @override
   Widget build(BuildContext context) {
